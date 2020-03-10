@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ms = require('ms');
 const { config } = require("dotenv");
-const token = 'NjA2OTQxNzA0MjA0ODQ1MDg4.XWcnaQ.pBfDn2fhdYLlyCYeHRkA1yhsR0Q';
+
 const {Client, RichEmbed, Collection} = require('discord.js')
 const configeration = require('./config.json')
 const Config = require("dotenv")
@@ -219,4 +219,4 @@ bot.on('message', async message=>{
 });
 
 
-bot.login(token);
+bot.login(process.env.token);
