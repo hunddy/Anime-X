@@ -7,7 +7,11 @@ module.exports = {
         const db = require('quick.db');
         let author = db.fetch(`animebucks_${message.guild.id}_${message.author.id}`)
         let amount = Math.floor(Math.random() * 5000) + 1; // 1-500 random number. whatever you'd like
-        if (author < 2500) return message.channel.send(':rofl: You are too poor. You need atleast `2500$` to purchase the moneycrate.')
+        
+        let Embed = new RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`:x: You need 2500 Animebucks to purchase moneycrate.`);
+        if (author < 2500) return message.channel.send(Embed)
     
         let moneycaseembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL) 
