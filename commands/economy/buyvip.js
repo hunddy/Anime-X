@@ -7,7 +7,7 @@ module.exports = {
         const db = require('quick.db');
         let user = message.author;
         let author = db.fetch(`animebucks_${message.guild.id}_${message.author.id}`)
-        db.fetch(`vip_${message.guild.id}_${user.id}`);
+
         if(!message.content.startsWith('?'))return; 
 
 
@@ -19,7 +19,8 @@ module.exports = {
     let Embed3 = new RichEmbed()
     .setColor("RANDOM")
     .setDescription(`You already owned vip you can't purchase it again.`)
-     if db.fetch(`vip_${message.guild.id}_${user.id}`, true) return message.channel.send(Embed3)
+     if db.get(`vip_${message.guild.id}_${user.id}`, true) return message.channel.send(Embed3)
+        db.fetch(`vip_${message.guild.id}_${user.id}`);
         db.set(`vip_${message.guild.id}_${user.id}`, true)
 
         let Embed2 = new RichEmbed()
