@@ -23,7 +23,7 @@ module.exports = {
         .setTitle(`${author} Animebucks`)
         .addField('**You currently have a total of:**', '`'+animebucks+'` Animebucks.')
         .addField('**You also have a total of:**', '`'+bank+'` Animebucks in you bank account.')
-        .addField('**Your Vip status is**', vip)
+        .addField('**Your Vip status is:**', vip)
         .setColor("RANDOM")
         message.channel.send(animebucksembed)
         
