@@ -11,12 +11,13 @@ module.exports = {
         let animebucks = db.fetch(`animebucks_${message.guild.id}_${message.author.id}`)
         let bank = await db.fetch(`bank_${message.guild.id}_${user.id}`)
         if (bank === null) bank = 0;
+        let author = message.author
 
 
         if (animebucks === null) animebucks = 0;
        
         let animebucksembed = new RichEmbed()
-        .setTitle('AnimeBucks')
+        .setTitle(`${author} Animebucks`)
         .addField('**You currently have a total of:**', '`'+animebucks+'` Animebucks.')
         .addField('**You also have a total of:**', '`'+bank+'` Animebucks in you bank account.')
         .setColor("RANDOM")
