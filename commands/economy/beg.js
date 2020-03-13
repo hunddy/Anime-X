@@ -26,7 +26,7 @@ module.exports = {
             "As Obama was driving by he spotted you on the street holding a sign asking for money, he feels bad for you so he gives you 100 Animebucks",
             "A random dude was selling jewlery he asked you if you wanted to buy some. But once he looked at you and your condition he gave you 100 Animebucks"
         ];
-            var begg = Math.floor(Math.random() * beggingrandom.length);
+            let begrandomm = (beggingrandom[Math.floor(Math.random() *beggingrandom.length)]);
         
           let timeEmbed = new RichEmbed()
           .setColor("RANDOM")
@@ -35,7 +35,7 @@ module.exports = {
         } else {
           let moneyEmbed = new RichEmbed()
         .setColor("RANDOM")
-        .addField("**Situation**", begg);
+        .addField("**Situation**", begrandom);
         message.channel.send(moneyEmbed)
         db.add(`animebucks_${message.guild.id}_${user.id}`, amount)
         db.set(`beg_${message.guild.id}_${user.id}`, Date.now())
