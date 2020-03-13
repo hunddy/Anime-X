@@ -1,7 +1,7 @@
 module.exports = {
     name: "animebucks",
     category: "economy",
-    usage: "Animebucks",
+    usage: "money", "currency",
     description: "This command is used to show currency.",
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
@@ -18,9 +18,8 @@ module.exports = {
         let animebucksembed = new RichEmbed()
         .setTitle('AnimeBucks')
         .addField('**You currently have a total of:**', '`'+animebucks+'` Animebucks.')
-        .addField('**And also have:**', '`'+bank+'` animebucks in you bank account.')
+        .addField('**You also have a total of:**', '`'+bank+'` Animebucks in you bank account.')
         .setColor("RANDOM")
-        .setImage('https://media.tenor.com/images/f10a9aa018d882d3b62e316725e4ca98/tenor.gif')
         message.channel.send(animebucksembed)
         
         }
