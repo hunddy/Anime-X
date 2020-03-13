@@ -16,7 +16,7 @@ module.exports = {
       
         let moneyEmbed = new RichEmbed()
         .setColor("RANDOM")
-        .setDescription(`**${user}'s Profile**\n\nInventory\n\njordans: ${shoes}**`);
+        .setDescription(`**${user}'s Profile**\n\n**Inventory**\n\njordans: **${shoes}**`);
         message.channel.send(moneyEmbed)
       
     }
