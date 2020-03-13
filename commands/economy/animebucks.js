@@ -1,7 +1,7 @@
 module.exports = {
     name: "animebucks",
     category: "economy",
-    usage: "money", "currency", "animebuck",
+    usage: "animebuck",
     description: "This command is used to show currency.",
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
