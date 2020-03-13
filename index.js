@@ -108,12 +108,6 @@ bot.on("messageUpdate", async(oldMessage, newMessage) =>{
     
 })
 
-let y = process.openStdin()
-y.addListener("data", res => {
-    let x = res.toString().trim().split(/ +/g)
-    bot.channels.get("527661621968109570").send(x.join(" "));
-})
-
 bot.on("messageDelete", async message =>{
 
         let logdeleteembed = new RichEmbed()
