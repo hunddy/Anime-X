@@ -21,10 +21,10 @@ module.exports = {
         if (beg !== null && timeout - (Date.now() - beg) > 0) {
           let time = ms(timeout - (Date.now() - beg));
         var beggingrandom = [
-            `You were looking in the dumpster at microsoft trying find stuff you can sell Bill gates came out of no where and handed you ${amount} "Please use this money to buy yourself some food" He stated.`,
-            `You walked into the apple store with the sign asking for money luckily Steven Paul was there he handed you ${amount} "Get yourself a haircut" He stated`,
-            `As Obama was driving by he spotted you on the street holding a sign saying "Give me money", he feels bad for you so he gives you ${amount} "Use the money wisey" He stated.`,
-            `A random dude was selling jewlery he asked you if you wanted to buy some. But once he looked at you and your condition he gave you ${amount} "You need it more then I do" they stated.`
+            "You were looking in the dumpster at microsoft trying find stuff you can sell Bill gates came out of no where and handed you `${amount}`",
+            "You walked into the apple store with the sign asking for money luckily Steven Paul was there he handed you `${amount}`",
+            "As Obama was driving by he spotted you on the street holding a sign asking for money, he feels bad for you so he gives you `${amount}`",
+            "A random dude was selling jewlery he asked you if you wanted to buy some. But once he looked at you and your condition he gave you `${amount}`"
         ];
             var begg = (beggingrandom[Math.floor(Math.random() *beggingrandom.length)]);
         
