@@ -12,7 +12,7 @@ module.exports = {
 
         let user = message.mentions.members.first()
         let targetuser = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
-        let author = await db.fetch(`rob_${message.guild.id}_${user.id}`)
+        let author = db.fetch(`animebucks_${message.guild.id}_${message.author.id}`)
         let author2 = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
         
         let timeout = 600000;
@@ -41,7 +41,7 @@ module.exports = {
             return message.channel.send(moneyEmbed2)
         }
 
-        random = Math.floor(Math.random() * 300)
+        let random = Math.floor(Math.random() * 300)
         
         let embed = new RichEmbed()
         .setDescription(`:white_check_mark: You robbed ${user} and got away with ${random} Animebucks`)
