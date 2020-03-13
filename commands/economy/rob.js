@@ -1,5 +1,5 @@
 module.exports = {
-    name: "rob",
+    name: "workinprogressrob1239123091230129312039",
     category: "economy",
     description: "This command is used for robbing people.",
     run: async (client, message, args) => {
