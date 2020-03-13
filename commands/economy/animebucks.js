@@ -11,6 +11,9 @@ module.exports = {
         let animebucks = db.fetch(`animebucks_${message.guild.id}_${message.author.id}`)
         let bank = await db.fetch(`bank_${message.guild.id}_${user.id}`)
         if (bank === null) bank = 0;
+        let vip = db.fetch(`vip_${message.guild.id}_${user.id}`)
+        if (vip === null) vip = "None"; 
+        if(vip === true) vip = "VIP";
         let author = message.member.user.tag
 
 
@@ -20,6 +23,7 @@ module.exports = {
         .setTitle(`${author} Animebucks`)
         .addField('**You currently have a total of:**', '`'+animebucks+'` Animebucks.')
         .addField('**You also have a total of:**', '`'+bank+'` Animebucks in you bank account.')
+        .addField('**Your Vip status is**', vip)
         .setColor("RANDOM")
         message.channel.send(animebucksembed)
         
