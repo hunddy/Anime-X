@@ -21,7 +21,7 @@ module.exports = {
 
         let user = message.author;
 
-        let timeout = 180000;
+        let timeout = 300000; 
       
         let beg = await db.fetch(`beg_${message.guild.id}_${user.id}`);
       
