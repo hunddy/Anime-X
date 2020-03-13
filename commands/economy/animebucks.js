@@ -11,7 +11,7 @@ module.exports = {
         let animebucks = db.fetch(`animebucks_${message.guild.id}_${message.author.id}`)
         let bank = await db.fetch(`bank_${message.guild.id}_${user.id}`)
         if (bank === null) bank = 0;
-        let author = message.author
+        let author = message.member.user.tag
 
 
         if (animebucks === null) animebucks = 0;
