@@ -16,7 +16,7 @@ module.exports = {
             `A random dude was selling jewlery he asked you if you wanted to buy some. But once he looked at you and your condition he gave you __**${vip}**__ Animebucks`
         ];
         let begrandomm = (beggingrandom[Math.floor(Math.random() *beggingrandom.length)]);
-        const db = require('quick.db');
+
         const ms = require('parse-ms');
                
 
