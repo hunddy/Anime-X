@@ -26,7 +26,7 @@ module.exports = {
             "As Obama was driving by he spotted you on the street holding a sign asking for money, he feels bad for you so he gives you `${amount}`",
             "A random dude was selling jewlery he asked you if you wanted to buy some. But once he looked at you and your condition he gave you `${amount}`"
         ];
-            var begg = Math.floor(Math.random() * beggingrandom.length):
+            var begg = Math.floor(Math.random() * beggingrandom.length);
         
           let timeEmbed = new RichEmbed()
           .setColor("RANDOM")
