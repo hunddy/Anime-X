@@ -30,7 +30,8 @@ module.exports = {
     } else {
     let embed = new RichEmbed()
     .setColor("RANDOM")
-    .setDescription(`**Daily Reward**`)
+    .setTitle('Daily rewards')
+    .setDescription(`.setDescription("Here's a **Tip** if you own **VIP** you will get a extra __**250**__ Animebucks from daiy rewards which equal up to __**750**__ Animebucks!.")`)
     .addField('**Collected**', vip)
 
     message.channel.send(embed)
