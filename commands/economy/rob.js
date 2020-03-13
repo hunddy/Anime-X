@@ -11,9 +11,11 @@ module.exports = {
         if(!message.content.startsWith('?'))return;  
 
         let user = message.mentions.members.first()
+        let target = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let targetuser = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
         let author = db.fetch(`animebucks_${message.guild.id}_${message.author.id}`)
         let author2 = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
+        if (!target) return message.reply('please specify a user to rob!');
         
         let timeout = 600000;
         
