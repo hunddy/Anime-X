@@ -8,8 +8,10 @@ module.exports = {
          const db = require('quick.db');
          let user = message.mentions.members.first() || message.author;
          let vip = db.fetch(`vip_${message.guild.id}_${user.id}`)
-         if(vip === true) vip = Math.floor(Math.random() * 350) + 1;
+         if(vip === true) vip = Math.floor(Math.random() * 350) + 100;
+         if(vip === true) vip = "Looks like you owned vip you will get extra 100 animebucks plus more chances to get more animebucks.";
          if (vip === null) vip = Math.floor(Math.random() * 200) + 1;
+         if(vip === null) vip = "Looks like you don't own vip, you shoud buy it from the shop because you can get extra perks from owning it.."
          var beggingrandom = [
             `You were looking in the dumpster at microsoft trying find stuff you can sell Bill Gates came out of no where and handed you __**${vip}**__ Animebucks`,
             `You walked into the apple store with the sign asking for money luckily Steven Paul was there he handed you __**${vip}**__ Animebucks`,
@@ -39,6 +41,7 @@ module.exports = {
         } else {
           let moneyEmbed = new RichEmbed()
         .setColor("RANDOM")
+        .setDescription(vip)
         .addField("**Situation**", begrandomm);
         message.channel.send(moneyEmbed)
         db.add(`animebucks_${message.guild.id}_${user.id}`, vip)
