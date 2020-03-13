@@ -5,7 +5,9 @@ module.exports = {
     description: "This command is used for begging money POOR.",
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
-         let amount = Math.floor(Math.random() * 200) + 1;
+         let vip = await db.fetch(`vip_${message.guild.id}_${user.id}`)
+         if(vip === true) random = Math.floor(Math.random() * 200) + 1;
+         if (vip === null) random = Math.floor(Math.random() * 100) + 1;
          var beggingrandom = [
             `You were looking in the dumpster at microsoft trying find stuff you can sell Bill Gates came out of no where and handed you __**${amount}**__ Animebucks`,
             `You walked into the apple store with the sign asking for money luckily Steven Paul was there he handed you __**${amount}**__ Animebucks`,
@@ -39,7 +41,7 @@ module.exports = {
         .setColor("RANDOM")
         .addField("**Situation**", begrandomm);
         message.channel.send(moneyEmbed)
-        db.add(`animebucks_${message.guild.id}_${user.id}`, amount)
+        db.add(`animebucks_${message.guild.id}_${user.id}`, random)
         db.set(`beg_${message.guild.id}_${user.id}`, Date.now())
       
       
