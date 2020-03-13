@@ -30,7 +30,7 @@ module.exports = {
           .setColor("RANDOM")
           .setDescription(`:x: You need atleast 500 Animebucks in your wallet to rob someone`);
         
-        if (author2 < 500) {
+        if (author < 500) {
             return message.channel.send(moneyEmbed)
         
         }
