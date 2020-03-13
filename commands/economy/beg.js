@@ -6,8 +6,8 @@ module.exports = {
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
          let vip = db.fetch(`vip_${message.guild.id}_${user.id}`)
-         if(vip === true) random = Math.floor(Math.random() * 350) + 1;
-         if (vip === null) random = Math.floor(Math.random() * 200) + 1;
+         if(vip === true) vip = Math.floor(Math.random() * 350) + 1;
+         if (vip === null) vip = Math.floor(Math.random() * 200) + 1;
          var beggingrandom = [
             `You were looking in the dumpster at microsoft trying find stuff you can sell Bill Gates came out of no where and handed you __**${vip}**__ Animebucks`,
             `You walked into the apple store with the sign asking for money luckily Steven Paul was there he handed you __**${vip}**__ Animebucks`,
