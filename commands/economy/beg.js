@@ -7,10 +7,10 @@ module.exports = {
         const {Client, RichEmbed, Collection} = require('discord.js')
          let amount = Math.floor(Math.random() * 200) + 1;
          var beggingrandom = [
-            "You were looking in the dumpster at microsoft trying find stuff you can sell Bill gates came out of no where and handed you `${amount}` Animebucks",
-            "You walked into the apple store with the sign asking for money luckily Steven Paul was there he handed you `${amount}` Animebucks",
-            "As Obama was driving by he spotted you on the street holding a sign asking for money, he feels bad for you so he gives you `${amount}` Animebucks",
-            "A random dude was selling jewlery he asked you if you wanted to buy some. But once he looked at you and your condition he gave you `${amount}` Animebucks"
+            `You were looking in the dumpster at microsoft trying find stuff you can sell Bill gates came out of no where and handed you ${amount} Animebucks`,
+            `You walked into the apple store with the sign asking for money luckily Steven Paul was there he handed you ${amount} Animebucks`,
+            `As Obama was driving by he spotted you on the street holding a sign asking for money, he feels bad for you so he gives you ${amount} Animebucks`,
+            `A random dude was selling jewlery he asked you if you wanted to buy some. But once he looked at you and your condition he gave you ${amount} Animebucks`
         ];
         let begrandomm = (beggingrandom[Math.floor(Math.random() *beggingrandom.length)]);
         const db = require('quick.db');
