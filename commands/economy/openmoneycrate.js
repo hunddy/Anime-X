@@ -12,7 +12,7 @@ module.exports = {
         let Embed = new RichEmbed()
         .setColor("RANDOM")
         .setDescription(`:x: You don't have any moneycrates to open what you trying to do?`);
-        if (author < 0) return message.channel.send(Embed)
+        if (author < 1) return message.channel.send(Embed)
     
         let moneycaseembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL) 
