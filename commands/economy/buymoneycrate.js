@@ -21,7 +21,7 @@ module.exports = {
 
         let Embed3 = new RichEmbed()
         .setColor("RANDOM")
-        .setDescription(`:white_check_mark: Purchased Moneycrate! :briefcase: For 1000 Animebucks`);
+        .setDescription(`:white_check_mark: Purchased Moneycrate! :briefcase: For 1000 Animebucks, to open the crate do ?openmoneycrate`);
 
         db.subtract(`animebucks_${message.guild.id}_${user.id}`, 1000)
         message.channel.send(Embed3)
