@@ -50,7 +50,7 @@ module.exports = {
         message.author.send("Wow, you really want to start a heist eh? Where do you wanna start one at? `Jewerly store?`, `Bank?`")
         const collector = new Discord.Message.Collecter(message.channel, m => m.author.id === message.author.id, { time: 10000 });
         consoe.log(collector)
-        collector.on('collect', message => if (message.content == "bank") {
+        collector.on('collect', message => if(message.content == "bank") {
         let bankEmbed = new RichEmbed()
         .setColor("RANDOM")
         .setDescription("Here's a **Tip** if you own **VIP** you will get a extra __**100**__ Animebuck plus more chances to get more Animebucks from starting a heist.")
@@ -58,7 +58,7 @@ module.exports = {
         message.channel.send(bankEmbed)
         db.add(`animebucks_${message.guild.id}_${user.id}`, vip)
         db.set(`heist_${message.guild.id}_${user.id}`, Date.now())
-        } else if (message.content == "jewerly store") {
+        } else if(message.content == "jewerly store") {
         let jewerlyEmbed = new RichEmbed()
         .setColor("RANDOM")
         .setDescription("Here's a **Tip** if you own **VIP** you will get a extra __**100**__ Animebuck plus more chances to get more Animebucks from starting a heist.")
