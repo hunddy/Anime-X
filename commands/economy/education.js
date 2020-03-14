@@ -9,7 +9,10 @@ module.exports = {
         let education = db.fetch(`education_${message.guild.id}_${message.author.id}`)
 
         if (education === null) education = 0
-        message.channel.send('You have `'+education+'` minutes of school. (To go to school use the command "?school")')
+        let educationhours = new Richembed()
+        .setTitle('Education')
+        .setDescription('You have `'+education+'` minutes of school. (To go to school use the command "?school`)
+        message.channel.send(educationhours)
         
         }
 }
