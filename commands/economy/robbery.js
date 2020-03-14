@@ -5,6 +5,7 @@ module.exports = {
     description: "This command is used for starting a robbery.",
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
+        const Discord = require('discord.js');
          const db = require('quick.db');
          let user = message.mentions.members.first() || message.author;
          let vip = db.fetch(`vip_${message.guild.id}_${user.id}`)
