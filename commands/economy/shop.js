@@ -11,7 +11,7 @@ module.exports = {
         .setColor("RANDOM")
         .addField(`<:jordans:679200006942490654> **Jordans**`, '`600$`\nGives you a fresh pair of jordans that will give you a cool effect in the future leaderboard. :wink:')
         .addField(`:briefcase: :money_with_wings:**Money crate**`, '`2500$`\nGives you a money crate that opens into a random amout of cash the luck is the key. :wink:!')
-        .addField(`<:Crown:679163396750442535> **Vip**`, '`3500$`\nGives you vip in the system more coming soon! (You will not gain any other features if you buy it more then once)')
+        .addField(`<:Crown:679163396750442535> **Vip**`, '`3500$`\nWith Vip you will be able to get extra money from daily rewards and begging more to come soon! (You will not gain any other features if you buy it more then once)')
         .setTimestamp()
         .setFooter('Shop items Page 1/1 NOTE ALL ITEMS SOLD AND SHIP BY A NERD/WEEB NO REFUNDS.')
         message.channel.send(storeembed)  
