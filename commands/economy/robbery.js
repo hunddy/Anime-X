@@ -49,7 +49,7 @@ module.exports = {
           message.channel.send(timeEmbed)
         }
         message.author.send("Wow, you really want to start a heist eh? Where do you wanna start one at? `Jewerly store?`, `Bank?`")
-        const collector = new Discord.Message.Collecter(message.channel, m => m.author.id === message.author.id, { time: 10000 });
+        const collector = new Discord.MessageCollecter(message.channel, m => m.author.id === message.author.id, { time: 10000 });
         message.channel.send(collector)
         collector.on('collect', message => {
         if(message.content == "bank") {
