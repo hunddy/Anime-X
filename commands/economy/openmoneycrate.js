@@ -1,11 +1,13 @@
 module.exports = {
-    name: "openmoneycrate",
+    name: "open",
     category: "economy",
-    description: "This command is used for opening moneycrate.",
+    description: "This command is used for opening crates.",
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
         const db = require('quick.db');
         let user = message.author;
+        let moneycrate = db.fetch(`moneycrate_${message.guild.id}_${user.id}`)
+        if(args[0] === moneycrate) {
         let author = db.fetch(`moneycrate_${message.guild.id}_${user.id}`)
         let amount = Math.floor(Math.random() * 2500) + 1; // 1-500 random number. whatever you'd like
         
@@ -23,6 +25,6 @@ module.exports = {
         message.channel.send(moneycaseembed)
         db.subtract(`moneycrate_${message.guild.id}_${message.author.id}`, 1)
         db.add(`animebucks_${message.guild.id}_${message.author.id}`, amount)
-
+        }
     }
 }
