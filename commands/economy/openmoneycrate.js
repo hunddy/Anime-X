@@ -16,7 +16,7 @@ module.exports = {
     
         let moneycaseembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL) 
-        .setDescription(`${message.author}, You opened a money crate and recive some cash __**${amount}$**__:money_with_wings:`)
+        .setDescription(`${message.author}, You opened a money crate and receive some Animebucks __**${amount}$**__:money_with_wings:`)
         .setColor("RANDOM")
 
 
