@@ -1,27 +1,29 @@
 module.exports = {
     name: "buymoneycrate",
     category: "economy",
+    aliases: ["buy moneycrate", "buymoneycrate"],
     description: "This command is used for buying.",
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
         const db = require('quick.db');
+        let user = message.author;
         let author = db.fetch(`animebucks_${message.guild.id}_${message.author.id}`)
-        let amount = Math.floor(Math.random() * 5000) + 1; // 1-500 random number. whatever you'd like
-        
-        let Embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setDescription(`:x: You need 2500 Animebucks to purchase moneycrate.`);
-        if (author < 2500) return message.channel.send(Embed)
-    
-        let moneycaseembed = new RichEmbed()
-        .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL) 
-        .setDescription(`${message.author}, You opened a money crate that you bought from a nerd/weeb and recive some cash ${amount}$:money_with_wings:`)
-        .setColor("RANDOM")
+        if(!message.content.startsWith('?'))return; 
 
+        let Embed2 = new RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`:x: You need 1000 Animebucks to purchase some Fresh jordans`);
 
-        message.channel.send(moneycaseembed)
-        db.subtract(`animebucks_${message.guild.id}_${message.author.id}`, 2500)
-        db.add(`animebucks_${message.guild.id}_${message.author.id}`, amount)
-        message.channel.send(message.author.tag + ' You successfully purchase the Moneycrate from a nerd for `2500$')
+        if (author < 1000) return message.channel.send(Embed2)
+       
+        db.fetch(`moneycrate_${message.guild.id}_${user.id}`)
+        db.add(`moneycrate_${message.guild.id}_${user.id}`, 1)
+
+        let Embed3 = new RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`:white_check_mark: Purchased Moneycrate! :briefcase: For 1000 Animebucks`);
+
+        db.subtract(`animebucks_${message.guild.id}_${user.id}`, 1000)
+        message.channel.send(Embed3)
     }
 }
