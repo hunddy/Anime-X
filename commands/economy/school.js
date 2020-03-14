@@ -5,7 +5,7 @@ module.exports = {
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
         const db = require('quick.db');
-        const ms = require('ms');
+        const ms = require('parse-ms');
                
         let amount = Math.floor(Math.random() * 30) + 1;
 
@@ -14,11 +14,14 @@ module.exports = {
     
     
         let schooldaily = db.fetch(`schooldaily_${message.guild.id}_${message.author.id}`)
-    
+      
         if (schooldaily !== null && timeout - (Date.now() - schooldaily) > 0) {
-            let time = ms(timeout - (Date.now() - schooldaily));
-        
-            message.channel.send(`❌ **You already Went to school come back in ''3'' minutes**!`)
+          let time = ms(timeout - (Date.now() - schooldaily));
+            
+          let timeEmbed = new RichEmbed()
+          .setColor("RANDOM")
+          .setDescription(`:x: You've already went to school recently\n\nGo to school again in again in ${time.minutes}m ${time.seconds}s stop begging and get a job. <:Chickenwithknife:679400414663409674>`);
+          message.channel.send(timeEmbed)
         } else {
         let schoolembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL)
