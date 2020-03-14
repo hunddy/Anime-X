@@ -20,7 +20,7 @@ module.exports = {
             
           let timeEmbed = new RichEmbed()
           .setColor("RANDOM")
-          .setDescription(`:x: You've already went to school recently\n\nGo to school again in again in ${time.minutes}m ${time.seconds}s stop begging and get a job. <:Chickenwithknife:679400414663409674>`);
+          .setDescription(`:x: You've already went to school recently\n\nGo to school again in again in ${time.minutes}m ${time.seconds}s.`);
           message.channel.send(timeEmbed)
         } else {
         let schoolembed = new RichEmbed()
