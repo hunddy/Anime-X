@@ -48,8 +48,8 @@ module.exports = {
           .setDescription(`:x: You've already started a heist recently\n\nStart one again in ${time.minutes}m ${time.seconds}s.`);
           message.channel.send(timeEmbed)
         }
-        message.author.send("Wow, you really want to start a heist eh? Where do you wanna start one at? `Jewerly store?`, `Bank?`")
-        let collector = new Discord.MessageCollecter(message.channel, m => m.author.id === message.author.id, { time: 10000 });
+        message.author.send("Wow, you really want to start a heist eh? Where do you wanna start one at? `Jewerly store?`, `Bank?`");
+        const collector = new Discord.MessageCollecter(message.channel, m => m.author.id === message.author.id, { time: 10000 });
         console.log(collector)
         collector.on('collect', message => {
         if(message.content == "bank") {
