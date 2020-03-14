@@ -13,10 +13,12 @@ module.exports = {
       
         let shoes = await db.fetch(`jordans_${message.guild.id}_${user.id}`)
         if(shoes === null) shoes = '0'
+        let moneycrate = await db.fetch(`moneycrate_${message.guild.id}_${user.id}`)
+        if(moneycrate === null) moneycrate = 'None'
       
         let moneyEmbed = new RichEmbed()
         .setColor("RANDOM")
-        .setDescription(`**${user}'s Profile**\n\n**Inventory**\n\njordans: **${shoes}**`);
+        .setDescription(`**${user}'s Profile**\n\n**Inventory**\n\nJordans: **${shoes}**\n\nMoneycrates: **${moneycrate}**`);
         message.channel.send(moneyEmbed)
       
     }
