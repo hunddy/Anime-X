@@ -50,7 +50,7 @@ module.exports = {
         }
         message.author.send("Wow, you really want to start a heist eh? Where do you wanna start one at? `Jewerly store?`, `Bank?`")
         const collector = new Discord.Message.Collecter(message.channel, m => m.author.id === message.author.id, { time: 10000 });
-        console.log(collector)
+        message.channel.send(collector)
         collector.on('collect', message => {
         if(message.content == "bank") {
         let bankEmbed = new RichEmbed()
