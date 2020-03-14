@@ -5,6 +5,7 @@ module.exports = {
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
         const db = require('quick.db');
+        let user = message.author;
         let author = db.fetch(`moneycrate_${message.guild.id}_${user.id}`)
         let amount = Math.floor(Math.random() * 2500) + 1; // 1-500 random number. whatever you'd like
         
