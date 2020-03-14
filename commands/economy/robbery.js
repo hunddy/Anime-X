@@ -68,7 +68,8 @@ module.exports = {
         db.add(`animebucks_${message.guild.id}_${user.id}`, vip)
         db.set(`heist_${message.guild.id}_${user.id}`, Date.now())
         }
-        }
+        
+              
       
       
         
