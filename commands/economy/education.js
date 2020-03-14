@@ -10,8 +10,8 @@ module.exports = {
 
         if (education === null) education = 0
         let educationhours = new Richembed()
-        .setTitle('Education')
-        .setDescription('You have `'+education+'` minutes of school. (To go to school use the command "?school`)
+        .setTitle('Education/school minutes')
+        .setDescription('You have `'+education+'` minutes of school. To go to school use the command "?school`)
         message.channel.send(educationhours)
         
         }
