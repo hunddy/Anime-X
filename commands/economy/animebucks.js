@@ -6,7 +6,7 @@ module.exports = {
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
         const db = require('quick.db');
-        let user = message.mentions.members.first() || message.author;
+        let user = message.author;
         let author = message.member.user.tag
                
         let animebucks = db.fetch(`animebucks_${message.author.id}`)
