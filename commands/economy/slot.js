@@ -14,6 +14,7 @@ module.exports = {
     let money = parseInt(args[0]);
     let win = false;
     let bal = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
+    let totalamount = await db.get(`animebucks_${message.guild.id}_${user.id}`)
 
     let moneymore = new RichEmbed()
     .setColor("RANDOM")
@@ -39,16 +40,16 @@ module.exports = {
     if (win) {
         let slotsEmbed1 = new RichEmbed()
             .setTitle('<:Slots:679382050930819082>')
-            .addField('Your old balance was', `${bal}`)
-            .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}<\n\nYou won ${money} animebucks!`)
+            .addField('Your new balance is', `${bal} + ${money} = ${totalamount}`)
+            .setDescription(`> ${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou won ${money} animebucks!`)
             .setColor("RANDOM")
         message.channel.send(slotsEmbed1)
         db.add(`animebucks_${message.guild.id}_${user.id}`, money)
     } else {
         let slotsEmbed = new RichEmbed()
             .setTitle('<:Slots:679382050930819082>')
-            .addField('Your old balance was', `${bal}`)
-            .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}<\n\nYou lost ${money} animebucks!`)
+            .addField('Your new balance is', `${bal} + ${money} = ${totalamount}`)
+            .setDescription(`> ${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou lost ${money} animebucks!`)
             .setColor("RANDOM")
         message.channel.send(slotsEmbed)
         db.subtract(`animebucks_${message.guild.id}_${user.id}`, money)
