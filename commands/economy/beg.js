@@ -6,9 +6,9 @@ module.exports = {
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
          const db = require('quick.db');
-         let user = message.mentions.members.first() || message.author;
+         let user = message.author;
          let author = message.member.user.tag
-         let vip = db.fetch(`vip_${message.author.id}`)
+         let vip = await db.fetch(`vip_${message.author.id}`)
          if(vip === true) vip = Math.floor(Math.random() * 250) + 100;
          if (vip === null) vip = Math.floor(Math.random() * 200) + 1;
 
@@ -27,7 +27,7 @@ module.exports = {
 
         let timeout = 300000; 
       
-        let beg = db.fetch(`beg_${message.author.id}`)
+        let beg = await db.fetch(`beg_${message.author.id}`)
       
         if (beg !== null && timeout - (Date.now() - beg) > 0) {
           let time = ms(timeout - (Date.now() - beg));
