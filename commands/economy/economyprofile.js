@@ -9,7 +9,7 @@ module.exports = {
 
         if(!message.content.startsWith('?'))return; 
 
-        let user = message.mentions.members.first() || message.author;
+        let user = message.author;
       
         let shoes = await db.fetch(`jordans_${message.author.id}`)
         if(shoes === null) shoes = '0'
