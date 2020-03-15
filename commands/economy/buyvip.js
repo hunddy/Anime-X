@@ -6,7 +6,7 @@ module.exports = {
         const {Client, RichEmbed, Collection} = require('discord.js')
         const db = require('quick.db');
         let user = message.author;
-        let author = db.fetch(`animebucks_${message.author.id}`)
+        let author = await db.fetch(`animebucks_${message.author.id}`)
 
         if(!message.content.startsWith('?'))return; 
 
@@ -21,7 +21,7 @@ module.exports = {
     .setDescription(`You already owned vip you can't purchase it again.`)
     if(db.fetch(`vip_${message.author.id}`)) return message.channel.send(Embed3)
         
-        db.fetch(`vip_${message.author.id}`);
+        await db.fetch(`vip_${message.author.id}`);
         db.set(`vip_${message.author.id}`, true)
 
         let Embed2 = new RichEmbed()
