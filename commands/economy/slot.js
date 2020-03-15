@@ -41,9 +41,8 @@ module.exports = {
     if (win) {
         let slotsEmbed1 = new RichEmbed()
             .setTitle(`${author} <:Slots:679382050930819082> machine...`)
-             .addField('Your old balance was', `${bal}`)
+            .addField('Your old balance was', `${bal}`)
              db.add(`animebucks_${message.guild.id}_${user.id}`, money)
-            .setTitle('<:Slots:679382050930819082>')
             .addField('Your new balance is', `${bal}`)
             .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou won __**${money}**__ Animebucks!`)
             .setColor("RANDOM")
