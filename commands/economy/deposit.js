@@ -1,6 +1,7 @@
 module.exports = {
     name: "deposit",
     category: "economy",
+     aliases: ["deposit", "dep", "desposits"],
     description: "This command is used for depositing money.",
     run: async (client, message, args) => {
         const {Client, RichEmbed, Collection} = require('discord.js')
