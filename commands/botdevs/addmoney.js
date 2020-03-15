@@ -15,8 +15,8 @@ module.exports = {
         let user = message.mentions.members.first() || message.author;
       
           if (isNaN(args[1])) return;
-          db.add(`animebucks_${message.guild.id}_${user.id}`, args[1])
-          let bal = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
+          db.add(`animebucks_${message.author.id}`, args[1])
+          let bal = await db.fetch(`animebucks_${message.author.id}`)
       
           let moneyEmbed = new RichEmbed()
           .setColor("RANDOM")
