@@ -41,7 +41,8 @@ module.exports = {
         .setColor("RANDOM")
         message.channel.send(cookerembed)
         db.add(`animebucks_${message.guild.id}_${message.author.id}`, cookeramount)
-        } else if (args[0] == 'policemen' {
+        } else if (args[0] == 'policemen') {
+                   
         let policemenamount = Math.floor(Math.random() * 300) + 1;
         let policemenauthor = db.fetch(`education_${message.guild.id}_${message.author.id}`)
         if (policemenauthor < 600) return message.channel.send(':rofl: You are too stupid. You need atleast `10H` of education to work here. (To get education use the command "?School")')
