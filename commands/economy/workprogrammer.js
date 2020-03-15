@@ -7,7 +7,7 @@ module.exports = {
         const db = require('quick.db');
         
         let amount = Math.floor(Math.random() * 500) + 1; // 1-500 random number. whatever you'd like
-        let author = db.fetch(`education_${message.guild.id}_${message.author.id}`)
+        let author = db.fetch(`education_${message.author.id}`)
         if (author < 600) return message.channel.send(':rofl: You are too stupid. You need atleast `10H` of education to work here. (To get education use the command "?School")')
         let programmarembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL) 
@@ -16,6 +16,6 @@ module.exports = {
 
 
         message.channel.send(programmarembed)
-        db.add(`animebucks_${message.guild.id}_${message.author.id}`, amount)
+        db.add(`animebucks_${message.author.id}`, amount)
     }
 }
