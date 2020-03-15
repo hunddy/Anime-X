@@ -7,7 +7,7 @@ module.exports = {
         const db = require('quick.db');
                
         let amount = Math.floor(Math.random() * 200) + 1; // 1-500 random number. whatever you'd like
-        let author = db.fetch(`education_${message.author.id}`)
+        let author = await db.fetch(`education_${message.author.id}`)
         if (author < 300) return message.channel.send(':rofl: You are too stupid. You need atleast `5H` of education to work here. (To get education use the command "?School")')
         let constructorembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL) 
