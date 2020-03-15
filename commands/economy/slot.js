@@ -39,20 +39,18 @@ module.exports = {
         win = true;
     }
     if (win) {
+        db.add(`animebucks_${message.guild.id}_${user.id}`, money)
         let slotsEmbed1 = new RichEmbed()
             .setTitle(`${author} <:Slots:679382050930819082> machine...`)
-            .addField('Your old balance was', `${bal}`)
-             db.add(`animebucks_${message.guild.id}_${user.id}`, money)
             .addField('Your new balance is', `${bal}`)
             .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou won __**${money}**__ Animebucks!`)
             .setColor("RANDOM")
         message.channel.send(slotsEmbed1)
 
     } else {
+        db.subtract(`animebucks_${message.guild.id}_${user.id}`, money)
         let slotsEmbed = new RichEmbed()
              .setTitle(`${author} <:Slots:679382050930819082> machine...`)
-             .addField('Your old balance was', `${bal}`)
-             db.subtract(`animebucks_${message.guild.id}_${user.id}`, money)
             .addField('Your new balance is', `${bal}`)
             .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou lost __**${money}**__ Animebucks!`)
             .setColor("RANDOM")
