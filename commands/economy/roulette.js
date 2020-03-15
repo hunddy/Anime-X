@@ -18,7 +18,7 @@ module.exports = {
     
 let colour = args[0];
 let money = parseInt(args[1]);
-let moneydb = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
+let moneydb = await db.fetch(`animebucks_${message.author.id}`)
 
 let random = Math.floor(Math.random() * 30);
 
@@ -32,7 +32,7 @@ let moneymore = new RichEmbed()
 let colorbad = new RichEmbed()
 .setColor("RANDOM")
 .setDescription(`:x: Specify a color | Red [2.5x] Black [3.5x] Green [17.5]`);
- let bal = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
+ let bal = await db.fetch(`animebucks_${message.author.id}`)
 
 
     if (!colour)  return message.channel.send(colorbad);
@@ -49,7 +49,7 @@ let colorbad = new RichEmbed()
     
     if (random == 0 && colour == 2) { // Green
         money *= 17.5
-        db.add(`animebucks_${message.guild.id}_${user.id}`, money)
+        db.add(`animebucks_${message.author.id}`, money)
         let moneyEmbed1 = new RichEmbed()
         .setTitle('<:roulette:679401857122172928>')
         .setColor("RANDOM")
@@ -59,7 +59,7 @@ let colorbad = new RichEmbed()
         console.log(`${message.author.tag} Won ${money} on green`)
     } else if (isOdd(random) && colour == 1) { // Red
         money = parseInt(money * 2.5)
-        db.add(`animebucks_${message.guild.id}_${user.id}`, money)
+        db.add(`animebucks_${message.author.id}`, money)
         let moneyEmbed2 = new RichEmbed()
         .setTitle('<:roulette:679401857122172928>')
         .setColor("RANDOM")
@@ -68,7 +68,7 @@ let colorbad = new RichEmbed()
         message.channel.send(moneyEmbed2)
     } else if (!isOdd(random) && colour == 0) { // Black
         money = parseInt(money * 3.5)
-        db.add(`animebucks_${message.guild.id}_${user.id}`, money)
+        db.add(`animebucks_$message.author.id}`, money)
         let moneyEmbed3 = new RichEmbed()
         .setTitle('<:roulette:679401857122172928>')
         .setColor("RANDOM")
@@ -76,7 +76,7 @@ let colorbad = new RichEmbed()
         .setDescription(`:Black: You won ${money} Animebucks\n\nMultiplier: 3.5x`)
         message.channel.send(moneyEmbed3)
     } else { // Wrong
-        db.subtract(`animebucks_${message.guild.id}_${user.id}`, money)
+        db.subtract(`animebucks_${message.author.id}`, money)
         let moneyEmbed4 = new RichEmbed()
         .setTitle('<:roulette:679401857122172928>')
         .setColor("RANDOM")
