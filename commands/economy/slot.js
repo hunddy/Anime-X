@@ -10,11 +10,11 @@ module.exports = {
         if(!message.content.startsWith('?'))return;  
 
     let user = message.author;
-    let moneydb = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
+    let moneydb = await db.fetch(`animebucks_${message.author.id}`)
     let money = parseInt(args[0]);
     let win = false;
-    let bal = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
-    let totalamount = await db.get(`animebucks_${message.guild.id}_${user.id}`)
+    let bal = await db.fetch(`animebucks_${message.author.id}`)
+    let totalamount = await db.get(`animebucks_${message.author.id}`)
 
     let author = message.member.user.tag
     let moneymore = new RichEmbed()
@@ -39,7 +39,7 @@ module.exports = {
         win = true;
     }
     if (win) {
-        db.add(`animebucks_${message.guild.id}_${user.id}`, money)
+        db.add(`animebucks_${message.author.id}`, money)
         let slotsEmbed1 = new RichEmbed()
             .setTitle(`${author} <:Slots:679382050930819082> machine...`)
             .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou won __**${money}**__ Animebucks!`)
@@ -47,7 +47,7 @@ module.exports = {
         message.channel.send(slotsEmbed1)
 
     } else {
-        db.subtract(`animebucks_${message.guild.id}_${user.id}`, money)
+        db.subtract(`animebucks_${message.author.id}`, money)
         let slotsEmbed = new RichEmbed()
              .setTitle(`${author} <:Slots:679382050930819082> machine...`)
             .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou lost __**${money}**__ Animebucks!`)
