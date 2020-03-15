@@ -6,7 +6,7 @@ module.exports = {
         const {Client, RichEmbed, Collection} = require('discord.js')
         const db = require('quick.db');
         let user = message.author;
-        let author = db.fetch(`animebucks_${message.author.id}`)
+        let author = await db.fetch(`animebucks_${message.author.id}`)
         if(!message.content.startsWith('?'))return; 
 
         let Embed2 = new RichEmbed()
@@ -15,7 +15,7 @@ module.exports = {
 
         if (author < 600) return message.channel.send(Embed2)
        
-        db.fetch(`jordans_${message.author.id}`)
+        await db.fetch(`jordans_${message.author.id}`)
         db.add(`jordans_${message.author.id}`, 1)
 
         let Embed3 = new RichEmbed()
