@@ -8,10 +8,10 @@ module.exports = {
         const db = require('quick.db');
         let user = message.mentions.members.first() || message.author;
                
-        let animebucks = db.fetch(`animebucks_${message.user.id}`)
-        let bank = await db.fetch(`bank{message.user.id}`)
+        let animebucks = db.fetch(`animebucks_${message.author.id}`)
+        let bank = await db.fetch(`bank{message.author.id}`)
         if (bank === null) bank = 0;
-        let vip = db.fetch(`vip{message.user.id}`)
+        let vip = db.fetch(`vip{message.author.id}`)
         if (vip === null) vip = "None"; 
         if(vip === true) vip = "VIP";
         let author = message.member.user.tag
