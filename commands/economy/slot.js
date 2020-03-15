@@ -16,6 +16,7 @@ module.exports = {
     let bal = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
     let totalamount = await db.get(`animebucks_${message.guild.id}_${user.id}`)
 
+    let author = message.member.user.tag
     let moneymore = new RichEmbed()
     .setColor("RANDOM")
     .setDescription(`:x: You are betting more than you have`);
@@ -31,28 +32,33 @@ module.exports = {
     for (i = 0; i < 3; i++) { number[i] = Math.floor(Math.random() * slotItems.length); }
 
     if (number[0] == number[1] && number[1] == number[2]) { 
-        money *= 15
+        money *= 10
         win = true;
     } else if (number[0] == number[1] || number[0] == number[2] || number[1] == number[2]) { 
-        money *= 5
+        money *= 3
         win = true;
     }
     if (win) {
         let slotsEmbed1 = new RichEmbed()
+            .setTitle(`${author} <:Slots:679382050930819082> machine...`)
+             .addField('Your old balance was', `${bal}`)
+             db.add(`animebucks_${message.guild.id}_${user.id}`, money)
             .setTitle('<:Slots:679382050930819082>')
-            .addField('Your new balance is', `${bal} + ${money} = ${totalamount}`)
-            .setDescription(`> ${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou won ${money} animebucks!`)
+            .addField('Your new balance is', `${bal}`)
+            .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou won __**${money}**__ Animebucks!`)
             .setColor("RANDOM")
         message.channel.send(slotsEmbed1)
-        db.add(`animebucks_${message.guild.id}_${user.id}`, money)
+
     } else {
         let slotsEmbed = new RichEmbed()
-            .setTitle('<:Slots:679382050930819082>')
-            .addField('Your new balance is', `${bal} + ${money} = ${totalamount}`)
-            .setDescription(`> ${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou lost ${money} animebucks!`)
+             .setTitle(`${author} <:Slots:679382050930819082> machine...`)
+             .addField('Your old balance was', `${bal}`)
+             db.subtract(`animebucks_${message.guild.id}_${user.id}`, money)
+            .addField('Your new balance is', `${bal}`)
+            .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou lost __**${money}**__ Animebucks!`)
             .setColor("RANDOM")
         message.channel.send(slotsEmbed)
-        db.subtract(`animebucks_${message.guild.id}_${user.id}`, money)
+
     }
     }
 }
