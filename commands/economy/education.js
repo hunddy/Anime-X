@@ -6,7 +6,7 @@ module.exports = {
         const {Client, RichEmbed, Collection} = require('discord.js')
         const db = require('quick.db');
                
-        let education = db.fetch(`education_${message.author.id}`)
+        let education = await db.fetch(`education_${message.author.id}`)
 
         if (education === null) education = 0
         let educationhours = new RichEmbed()
