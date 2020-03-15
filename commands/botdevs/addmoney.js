@@ -16,7 +16,10 @@ module.exports = {
       
           if (isNaN(args[1])) return;
           db.add(`animebucks_${message.author.id}`, args[1])
-          let bal = await db.fetch(`animebucks_${message.author.id}`)
+           db.add(`education_${message.author.id}`, args[1])
+          let bal = db.fetch(`animebucks_${message.author.id}`)
+          
+          let education = db.fetch(`education_${message.author.id}`)
       
           let moneyEmbed = new RichEmbed()
           .setColor("RANDOM")
