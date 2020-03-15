@@ -11,8 +11,8 @@ module.exports = {
 
         let user = message.author;
       
-        let member = db.fetch(`animebucks_${message.author.id}`)
-        let member2 = db.fetch(`bank_${message.author.id}`)
+        let member = await db.fetch(`animebucks_${message.author.id}`)
+        let member2 = await db.fetch(`bank_${message.author.id}`)
       
         if (args[0] == 'all') {
           let money = await db.fetch(`bank_${message.author.id}`)
