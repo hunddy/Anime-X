@@ -11,12 +11,12 @@ module.exports = {
 
   let user = message.author;
 
-  let member = db.fetch(`animebucks_${message.guild.id}_${user.id}`)
-  let member2 = db.fetch(`bank_${message.guild.id}_${user.id}`)
+  let member = db.fetch(`animebucks_${message.author.id}`)
+  let member2 = db.fetch(`bank_${message.author.id}`)
 
   if (args[0] == 'all') {
-    let money = await db.fetch(`animebucks_${message.guild.id}_${user.id}`)
-    let bank = await db.fetch(`bank_${message.guild.id}_${user.id}`)
+    let money = await db.fetch(`animebucks_${message.author.id}`)
+    let bank = await db.fetch(`bank_${message.author.id}`)
 
     let embedbank = new RichEmbed()
     .setColor('RANDOM')
@@ -24,8 +24,8 @@ module.exports = {
 
     if(money === 0) return message.channel.send(embedbank)
 
-    db.add(`bank_${message.guild.id}_${user.id}`, money)
-    db.subtract(`animebucks_${message.guild.id}_${user.id}`, money)
+    db.add(`bank_${message.author.id}`, money)
+    db.subtract(`animebucks_${message.author.id}`, money)
     let embed5 = new RichEmbed()
   .setColor("RANDOM")
   .setDescription(`:white_check_mark: You have deposited all your Animebucks into your bank`);
@@ -61,8 +61,8 @@ module.exports = {
   .setDescription(`:white_check_mark: You have deposited ${args[0]} Animebucks into your bank`);
 
   message.channel.send(embed5)
-  db.add(`bank_${message.guild.id}_${user.id}`, args[0])
-  db.subtract(`animebucks_${message.guild.id}_${user.id}`, args[0])
+  db.add(`bank_${message.author.id}`, args[0])
+  db.subtract(`animebucks_${message.author.id}`, args[0])
   }
     }
 }
