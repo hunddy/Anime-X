@@ -49,7 +49,7 @@ module.exports = {
     } else {
         db.subtract(`animebucks_${message.author.id}`, money)
         let slotsEmbed = new RichEmbed()
-             .setTitle(`${author} <:Slots:679382050930819082> machine...`)
+            .setTitle(`${user.username} <:Slots:679382050930819082> machine...`)
             .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou lost __**${money}**__ Animebucks!`)
             .setColor("RANDOM")
         message.channel.send(slotsEmbed)
