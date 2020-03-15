@@ -9,7 +9,7 @@ module.exports = {
         let timeout = 86400000 // 24 hours in milliseconds, change if you'd like.
          const db = require('quick.db');
          let user = message.author;
-         let vip = db.fetch(`vip_${message.author.id}`)
+         let vip = await db.fetch(`vip_${message.author.id}`)
          if(vip === true) vip = 500 + 250;
          if (vip === null) vip = 500 + 0;
 
