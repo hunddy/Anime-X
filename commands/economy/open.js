@@ -8,7 +8,7 @@ module.exports = {
         let user = message.author;
 
         if(args[0] === 'moneycrate') {
-        let author = db.fetch(`moneycrate_${message.guild.id}_${user.id}`)
+        let author = db.fetch(`moneycrate_${message.author.id}`)
         let amount = Math.floor(Math.random() * 2500) + 1; // 1-500 random number. whatever you'd like
         
         let Embed = new RichEmbed()
@@ -23,8 +23,8 @@ module.exports = {
 
 
         message.channel.send(moneycaseembed)
-        db.subtract(`moneycrate_${message.guild.id}_${message.author.id}`, 1)
-        db.add(`animebucks_${message.guild.id}_${message.author.id}`, amount)
+        db.subtract(`moneycrate_${message.author.id}`, 1)
+        db.add(`animebucks_${message.author.id}`, amount)
         }
     }
 }
