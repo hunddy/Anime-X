@@ -9,7 +9,7 @@ module.exports = {
         
         if (args[0] == 'programmer') {
         let programmeramount = Math.floor(Math.random() * 500) + 1; // 1-500 random number. whatever you'd like
-        let programmerauthor = db.fetch(`education_${message.author.id}`)
+        let programmerauthor = await db.fetch(`education_${message.author.id}`)
         if (programmerauthor < 600) return message.channel.send(':rofl: You are too stupid. You need atleast `10H` of education to work here. (To get education use the command "?School")')
         let programmarembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL) 
@@ -21,7 +21,7 @@ module.exports = {
         db.add(`animebucks_${message.author.id}`, programmeramount)
         } else if(args[0] == 'constructor') {
          let constructoramount = Math.floor(Math.random() * 200) + 1; // 1-500 random number. whatever you'd like
-        let constructorauthor = db.fetch(`education_${message.author.id}`)
+        let constructorauthor = await db.fetch(`education_${message.author.id}`)
         if (constructorauthor < 300) return message.channel.send(':rofl: You are too stupid. You need atleast `5H` of education to work here. (To get education use the command "?School")')
         let constructorembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL) 
@@ -33,7 +33,7 @@ module.exports = {
         db.add(`animebucks_${message.author.id}`, constructoramount)
         } else if(args[0] == 'cooker') {
         let cookeramount = Math.floor(Math.random() * 50) + 1;
-        let cookerauthor = db.fetch(`education_${message.author.id}`)
+        let cookerauthor = await db.fetch(`education_${message.author.id}`)
         if (cookerauthor < 300) return message.channel.send(':rofl: You are too stupid. You need atleast `5H` of education to work here. (To get education use the command "?School")')
         let cookerembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL)
@@ -44,7 +44,7 @@ module.exports = {
         } else if (args[0] == 'policemen') {
                    
         let policemenamount = Math.floor(Math.random() * 300) + 1;
-        let policemenauthor = db.fetch(`education_${message.author.id}`)
+        let policemenauthor = await db.fetch(`education_${message.author.id}`)
         if (policemenauthor < 600) return message.channel.send(':rofl: You are too stupid. You need atleast `10H` of education to work here. (To get education use the command "?School")')
         let policemenembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL)
