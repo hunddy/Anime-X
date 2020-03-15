@@ -7,14 +7,15 @@ module.exports = {
         const {Client, RichEmbed, Collection} = require('discord.js')
         const db = require('quick.db');
         let user = message.mentions.members.first() || message.author;
+        let author = message.member.user.tag
                
         let animebucks = db.fetch(`animebucks_${message.author.id}`)
-        let bank = await db.fetch(`bank{message.author.id}`)
+        let bank = await db.fetch(`bank_${message.author.id}`)
         if (bank === null) bank = 0;
-        let vip = db.fetch(`vip{message.author.id}`)
+        let vip = db.fetch(`vip_${message.author.id}`)
         if (vip === null) vip = "None"; 
         if(vip === true) vip = "VIP";
-        let author = message.member.user.tag
+
 
 
         if (animebucks === null) animebucks = 0;
