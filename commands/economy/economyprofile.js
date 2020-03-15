@@ -11,9 +11,9 @@ module.exports = {
 
         let user = message.mentions.members.first() || message.author;
       
-        let shoes = await db.fetch(`jordans_${message.guild.id}_${user.id}`)
+        let shoes = await db.fetch(`jordans_${message.author.id}`)
         if(shoes === null) shoes = '0'
-        let moneycrate = await db.fetch(`moneycrate_${message.guild.id}_${user.id}`)
+        let moneycrate = await db.fetch(`moneycrate_${message.author.id}`)
         if(moneycrate === null) moneycrate = 'None'
       
         let moneyEmbed = new RichEmbed()
