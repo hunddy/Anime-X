@@ -8,10 +8,10 @@ module.exports = {
         const db = require('quick.db');
         let user = message.mentions.members.first() || message.author;
                
-        let animebucks = db.fetch(`animebucks_${message.guild.id}_${message.author.id}`)
-        let bank = await db.fetch(`bank_${message.guild.id}_${user.id}`)
+        let animebucks = db.fetch(`animebucks_${message.user.id}`)
+        let bank = await db.fetch(`bank{message.user.id}`)
         if (bank === null) bank = 0;
-        let vip = db.fetch(`vip_${message.guild.id}_${user.id}`)
+        let vip = db.fetch(`vip{message.user.id}`)
         if (vip === null) vip = "None"; 
         if(vip === true) vip = "VIP";
         let author = message.member.user.tag
@@ -20,7 +20,7 @@ module.exports = {
         if (animebucks === null) animebucks = 0;
        
         let animebucksembed = new RichEmbed()
-        .setTitle(`${author} Animebucks`)
+        .setTitle(`${user.username} Animebucks`)
         .addField('**You currently have a total of:**', '`'+animebucks+'` Animebucks.')
         .addField('**You also have a total of:**', '`'+bank+'` Animebucks in you bank account.')
         .addField('**Your Vip status is:**', vip)
