@@ -13,7 +13,7 @@ module.exports = {
 
     
     
-        let schooldaily = db.fetch(`schooldaily_${message.guild.id}_${message.author.id}`)
+        let schooldaily = db.fetch(`schooldaily_${message.author.id}`)
       
         if (schooldaily !== null && timeout - (Date.now() - schooldaily) > 0) {
           let time = ms(timeout - (Date.now() - schooldaily));
@@ -28,8 +28,8 @@ module.exports = {
         .setDescription(`${message.author}, you went to the school and study for ${amount} minutes to help you towards your dream job.`) 
         .setColor("RANDOM")
         message.channel.send(schoolembed) 
-        db.add(`education_${message.guild.id}_${message.author.id}`, amount)
-        db.set(`schooldaily_${message.guild.id}_${message.author.id}`, Date.now())
+        db.add(`education_${message.author.id}`, amount)
+        db.set(`schooldaily_${message.author.id}`, Date.now())
         }
     }
 }
