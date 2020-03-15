@@ -26,7 +26,7 @@ module.exports = {
 
         let timeout = 300000; 
       
-        let beg = await db.fetch(`beg_${message.guild.id}_${user.id}`);
+        let beg = await db.fetch(`beg_${message.author.id}`);
       
         if (beg !== null && timeout - (Date.now() - beg) > 0) {
           let time = ms(timeout - (Date.now() - beg));
