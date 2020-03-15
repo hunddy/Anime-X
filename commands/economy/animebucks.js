@@ -9,10 +9,10 @@ module.exports = {
         let user = message.author;
         let author = message.member.user.tag
                
-        let animebucks = db.fetch(`animebucks_${message.author.id}`)
+        let animebucks = await db.fetch(`animebucks_${message.author.id}`)
         let bank = await db.fetch(`bank_${message.author.id}`)
         if (bank === null) bank = 0;
-        let vip = db.fetch(`vip_${message.author.id}`)
+        let vip = await db.fetch(`vip_${message.author.id}`)
         if (vip === null) vip = "None"; 
         if(vip === true) vip = "VIP";
 
