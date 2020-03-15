@@ -25,7 +25,7 @@ module.exports = {
           let time = ms(timeout - (Date.now() - daily));
            let timeEmbed = new RichEmbed()
           .setColor("RANDOM")
-          .setDescription(`:x: You've already claimed your daily reward recently\n\nYou wil be able to claim you daiybucks in again in ${time.minutes}m ${time.seconds}s.`);
+          .setDescription(`:x: You've already claimed your daily reward recently\n\nYou wil be able to claim you daiybucks in again in ${time.hours}h ${time.minutes}m ${time.seconds}s.`);
           message.channel.send(timeEmbed)
     } else {
     let embed = new RichEmbed()
