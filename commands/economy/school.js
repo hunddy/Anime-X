@@ -13,7 +13,7 @@ module.exports = {
 
     
     
-        let schooldaily = db.fetch(`schooldaily_${message.author.id}`)
+        let schooldaily = await db.fetch(`schooldaily_${message.author.id}`)
       
         if (schooldaily !== null && timeout - (Date.now() - schooldaily) > 0) {
           let time = ms(timeout - (Date.now() - schooldaily));
