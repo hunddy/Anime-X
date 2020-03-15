@@ -6,7 +6,7 @@ module.exports = {
         const {Client, RichEmbed, Collection} = require('discord.js')
         const db = require('quick.db');
         let user = message.author;
-        let author = db.fetch(`animebucks_${message.author.id}`)
+        let author = await db.fetch(`animebucks_${message.author.id}`)
         if(!message.content.startsWith('?'))return; 
         
         if (args[0] == 'moneycrate') {
@@ -16,8 +16,8 @@ module.exports = {
 
         if (author < 1000) return message.channel.send(moneycrate2)
        
-        db.fetch(`moneycrate_${message.author.id}`)
-        db.add(`moneycrate_${message.author.id}`, 1)
+        await db.fetch(`moneycrate_${message.author.id}`)
+              db.add(`moneycrate_${message.author.id}`, 1)
 
         let moneycrate3 = new RichEmbed()
         .setColor("RANDOM")
@@ -32,7 +32,7 @@ module.exports = {
 
         if (author < 600) return message.channel.send(jordans2)
        
-        db.fetch(`jordans_${message.author.id}`)
+        await db.fetch(`jordans_${message.author.id}`)
         db.add(`jordans_${message.author.id}`, 1)
 
         let jordans3 = new RichEmbed()
@@ -51,7 +51,7 @@ module.exports = {
     .setColor("RANDOM")
     .setDescription(`You already owned vip you can't purchase it again.`)
     if(db.fetch(`vip_${message.author.id}`)) return message.channel.send(vip2)
-        db.fetch(`vip_${message.author.id}`);
+        await db.fetch(`vip_${message.author.id}`);
         db.set(`vip_${message.author.id}`, true)
 
         let vip3 = new RichEmbed()
