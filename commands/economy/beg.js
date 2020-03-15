@@ -7,7 +7,7 @@ module.exports = {
         const {Client, RichEmbed, Collection} = require('discord.js')
          const db = require('quick.db');
          let user = message.mentions.members.first() || message.author;
-         let vip = db.fetch(`vip_${message.guild.id}_${user.id}`)
+         let vip = db.fetch(`vip_${message.author.id}`)
          if(vip === true) vip = Math.floor(Math.random() * 250) + 100;
          if (vip === null) vip = Math.floor(Math.random() * 200) + 1;
 
@@ -43,7 +43,7 @@ module.exports = {
         .setDescription("Here's a **Tip** if you own **VIP** you will get a extra __**100**__ Animebuck plus more chances to get more Animebucks.")
         .addField("**Situation**", begrandomm);
         message.channel.send(moneyEmbed)
-        db.add(`animebucks_${message.guild.id}_${user.id}`, vip)
+        db.add(`animebucks_${message.author.id}`, vip)
         db.set(`beg_${message.guild.id}_${user.id}`, Date.now())
       
       
