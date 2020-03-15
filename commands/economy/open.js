@@ -8,7 +8,7 @@ module.exports = {
         let user = message.author;
 
         if(args[0] === 'moneycrate') {
-        let author = db.fetch(`moneycrate_${message.author.id}`)
+        let author = await db.fetch(`moneycrate_${message.author.id}`)
         let amount = Math.floor(Math.random() * 2500) + 1; // 1-500 random number. whatever you'd like
         
         let Embed = new RichEmbed()
