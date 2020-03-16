@@ -7,7 +7,7 @@ module.exports = {
         const db = require('quick.db');
         const ms = require('parse-ms');
                
-        let amount = Math.floor(Math.random() * 30) + 1;
+        let amount = Math.floor(Math.random() * 100) + 1;
 
         let timeout = 180000 // 24 hours in milliseconds, change if you'd like.
 
