@@ -10,16 +10,17 @@ module.exports = {
 
         if(!message.content.startsWith('?'))return; 
 
-
+        let Embed3 = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`You already owned vip you can't purchase it again.`)
+    if(db.fetch(`vip_${message.author.id}`)) return message.channel.send(Embed3)
+        
     let Embed = new RichEmbed()
     .setColor("RANDOM")
     .setDescription(`:x: You need 3500 Animebucks to purchase VIP`);
         if (author < 3500) return message.channel.send(Embed)
         
-    let Embed3 = new RichEmbed()
-    .setColor("RANDOM")
-    .setDescription(`You already owned vip you can't purchase it again.`)
-    if(db.fetch(`vip_${message.author.id}`)) return message.channel.send(Embed3)
+
         
         await db.fetch(`vip_${message.author.id}`);
         db.set(`vip_${message.author.id}`, true)
