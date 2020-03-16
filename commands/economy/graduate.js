@@ -26,8 +26,8 @@ module.exports = {
         
 
         
-        await db.fetch(`highschooldiploma_${message.author.id}`);
-        db.set(`highschooldiploma_${message.author.id}`, true)
+        await db.fetch(`highschooldiplomas_${message.author.id}`);
+        db.set(`highschooldiplomas_${message.author.id}`, true)
 
         let Embed2 = new RichEmbed()
         .setColor("RANDOM")
