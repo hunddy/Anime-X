@@ -15,6 +15,9 @@ module.exports = {
         let vip = await db.fetch(`vip_${message.author.id}`)
         if (vip === null) vip = "None"; 
         if(vip === true) vip = "VIP";
+        let graduation = await db.fetch(`highschooldiploma_${message.author.id}`)
+        if(graduation = null) graduation = "Not yet graduated";
+        if(graduation = true) graduation = "High school diploma";
 
 
 
@@ -25,6 +28,7 @@ module.exports = {
         .addField('**You currently have a total of:**', '`'+animebucks+'` Animebucks.')
         .addField('**You also have a total of:**', '`'+bank+'` Animebucks in you bank account.')
         .addField('**Your Vip status is:**', vip)
+        .addField('**Your graduation status is:**', graduation)
         .setColor("RANDOM")
         message.channel.send(animebucksembed)
         
