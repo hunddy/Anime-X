@@ -7,7 +7,7 @@ module.exports = {
         const db = require('quick.db');
                
         let education = await db.fetch(`educations_${message.author.id}`)
-       let graduation = await db.fetch(`highschooldiploma_${message.author.id}`)
+       let graduation = await db.fetch(`highschooldiplomas_${message.author.id}`)
         if(graduation = null) graduation = "Not yet graduated";
         if(graduation = true) graduation = "High school diploma";
 
