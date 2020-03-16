@@ -17,7 +17,7 @@ module.exports = {
          let Embed3 = new RichEmbed()
     .setColor("RANDOM")
     .setDescription(`You already have a high school diploma what are you trying do?`)
-    if(db.fetch(`highschooldiploma_${message.author.id}`)) return message.channel.send(Embed3)
+    if(db.fetch(`highschooldiplomas_${message.author.id}`)) return message.channel.send(Embed3)
     
         let Embed = new RichEmbed()
     .setColor("RANDOM")
