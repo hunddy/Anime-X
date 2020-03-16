@@ -16,8 +16,8 @@ module.exports = {
         if (vip === null) vip = "None"; 
         if(vip === true) vip = "VIP";
         let graduation = await db.fetch(`highschooldiploma_${message.author.id}`)
-        if(graduation = null) graduation = "Not yet graduated";
-        if(graduation = true) graduation = "High school diploma";
+        if(graduation === null) graduation = "Not yet graduated";
+        if(graduation === true) graduation = "High school diploma";
 
 
 
