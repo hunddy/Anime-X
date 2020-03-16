@@ -16,7 +16,7 @@ module.exports = {
       
           if (isNaN(args[1])) return;
           db.add(`animebucks_${message.author.id}`, args[1])
-           db.add(`education_${message.author.id}`, args[1])
+           db.add(`educations_${message.author.id}`, args[1])
           let bal = db.fetch(`animebucks_${message.author.id}`)
           
           let education = db.fetch(`education_${message.author.id}`)
