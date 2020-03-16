@@ -11,7 +11,7 @@ module.exports = {
      let Embed3 = new RichEmbed()
     .setColor("RANDOM")
     .setDescription(`You already have a high school diploma you don't need no more school.`)
-    if(db.fetch(`highschooldiploma_${message.author.id}`)) return message.channel.send(Embed3)
+    if(db.fetch(`highschooldiplomas_${message.author.id}`)) return message.channel.send(Embed3)
                
         let amount = Math.floor(Math.random() * 100) + 1;
 
