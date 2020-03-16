@@ -25,7 +25,7 @@ const leveling = require('discord-leveling')
 
 
 let PREFIX = configeration.prefix
-var version = '1.0.7';
+var version = 'Alpha 2.0.0';
 
 
 var Cooldown = '**5 Seconds**';
