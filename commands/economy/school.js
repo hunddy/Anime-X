@@ -13,7 +13,7 @@ module.exports = {
 
     
     
-        let schooldaily = await db.fetch(`schooldaily_${message.author.id}`)
+        let schooldaily = await db.fetch(`schooldailys_${message.author.id}`)
       
         if (schooldaily !== null && timeout - (Date.now() - schooldaily) > 0) {
           let time = ms(timeout - (Date.now() - schooldaily));
@@ -25,11 +25,11 @@ module.exports = {
         } else {
         let schoolembed = new RichEmbed()
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL)
-        .setDescription(`${message.author}, you went to the school and study for ${amount} minutes to help you towards your dream job.`) 
+        .setDescription(`${message.author}, You've went to the school and study for ${amount} minutes.`) 
         .setColor("RANDOM")
         message.channel.send(schoolembed) 
-        db.add(`education_${message.author.id}`, amount)
-        db.set(`schooldaily_${message.author.id}`, Date.now())
+        db.add(`educations_${message.author.id}`, amount)
+        db.set(`schooldailys_${message.author.id}`, Date.now())
         }
     }
 }
