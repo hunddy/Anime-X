@@ -43,7 +43,7 @@ module.exports = {
         let currentwinbalance = db.fetch(`animebucks_${message.author.id}`)
         let slotsEmbed1 = new RichEmbed()
             .setTitle(`${user.username} <:Slots:679382050930819082> machine...`)
-            .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou won __**${money}**__ Animebucks!\n\nYou now have **${currentwinbalance}** Animebucks.`)
+            .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou won __**${money}**__ Animebucks!\n\nYou now have **${currentwinbalance}** Animebucks!`)
            
             .setColor("RANDOM")
         message.channel.send(slotsEmbed1)
@@ -53,7 +53,7 @@ module.exports = {
         let currentlosebalance = db.fetch(`animebucks_${message.author.id}`)
         let slotsEmbed = new RichEmbed()
             .setTitle(`${user.username} <:Slots:679382050930819082> machine...`)
-            .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou lost __**${money}**__ Animebucks!\n\nYou now have **${currentlosebalance}** Animebucks.`)
+            .setDescription(`>${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]} <\n\nYou lost __**${money}**__ Animebucks!\n\nYou now have **${currentlosebalance}** Animebucks!`)
             .setColor("RANDOM")
         message.channel.send(slotsEmbed)
 
