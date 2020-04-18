@@ -24,7 +24,7 @@ const leveling = require('discord-leveling')
 
 
 
-let PREFIX = configeration.prefix
+let PREFIX = "?"
 var version = 'Alpha 2.0.0';
 
 
@@ -47,6 +47,8 @@ const moment = require("moment");
 const cheerio = require('cheerio');
 
 const request = require('request');
+
+bot.music = new Map();
 
 const usedCommandRecently = new Set();
 
@@ -78,7 +80,7 @@ var CoinFlip = [
 
 bot.on('ready', () =>{
     console.log(`${bot.user.username} is succefully on! in ${bot.guilds.size} Servers and in ${bot.channels.size} channels.`)
-    bot.user.setActivity(`${bot.guilds.size} Servers, ?Help`, { type: 'WATCHING'}).catch(console.error);
+    bot.user.setActivity(`${bot.users.size} Users, ${bot.guilds.size} Servers, ?Help`, { type: 'WATCHING'}).catch(console.error);
 
 })
 
@@ -127,15 +129,6 @@ bot.on("messageDelete", async message =>{
     
 });
 
-bot.on('guildMemberAdd', member =>{
-   
-    const channel = member.guild.channels.find(channel => channel.name === "welcome");
-    if(!channel) return;
-
-    channel.send(`Welcome, to the server ${member}! Make sure to read the rules!`);
-
-});
-
 bot.on('messageDelete', async message => {
    bot.snipes.set(message.channel.id, {
        sender: message.author,
@@ -157,17 +150,23 @@ bot.on("guildCreate", guild => {
     let botonjoinserverembed = new RichEmbed()
     .setColor('RANDOM')
     .setTitle('Thank, you for adding me to the server!')
-    .setDescription("Hello! I'm AnimeX here at your service my prefix is ``?`` I've a bunch of commands from laughing at memes to having fun playing with my economy system all the way to helping moderators moderate the chat!")
-    .addField('**Important**', "I've a logging system, all you need to do is create a channel named ``logs`` this is optional.")
+    .setDescription("Hello! I'm AnimeX here at your service my default prefix is ``?`` You can change it just look at ?help for commands, I've a bunch of commands from laughing at memes to having fun playing with my economy system all the way to helping moderators moderate the chat!")
+    .addField('**Important**', "I've a logging system, all you need to do is create a channel named ``logs`` this is optional, Also this is Important most of my commands need permission so please give me permission.")
     .addField('**Also**', 'I hope you enjoy my functional commands if you need help or support make sure to join my support server!')
     .addField('**Need assistance or help with AnimeX? Join our support server!**', '[Join our support server!](https://discord.gg/R5JXU5h)')
 
     channel.send(botonjoinserverembed)
 })
+
 bot.on('message', async message=>{
+
+    //custom prefix 
+let fetched = await db.fetch(`prefixs_${message.guild.id}`);
+if (fetched === null) PREFIX = "?";
+else PREFIX = fetched;
     
-    console.log(`${message.author.username} said: ${message.content}`);
-    const PREFIX = configeration.prefix
+
+ 
     
     if (message.author.bot) return;
     if (!message.guild) return;
@@ -180,24 +179,6 @@ bot.on('message', async message=>{
     const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
     
-      //When someone sends a message add xp
-  var profile = await leveling.Fetch(message.author.id)
-  leveling.AddXp(message.author.id, 10)
-  //If user xp higher than 100 add level
-  if (profile.xp + 10 > 100) {
-    await leveling.AddLevel(message.author.id, 1)
-    await leveling.SetXp(message.author.id, 0)
-    let targetlevel = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-
-    let levelembed = new RichEmbed()
-    .setTitle('LEVEL UP!')
-    .setThumbnail(targetlevel.user.avatarURL)
-    .addField('**You just leveled up! You are now level:**', `**${profile.level + 1}**`)
-    .setImage('https://media1.tenor.com/images/26acf59cb43097db3efc5b183cfd8c55/tenor.gif?itemid=15114457')
-    .setColor("RANDOM")
-    .setFooter('Leveled user information', message.author.displayAvatarURL);
-    message.channel.send(levelembed)
-  }
     
     if (cmd.length === 0) return;
     
@@ -213,4 +194,4 @@ bot.on('message', async message=>{
 });
 
 
-bot.login(process.env.token);
+bot.login("NjA2OTQxNzA0MjA0ODQ1MDg4.XnES3w.rEpmQRqh-ZYn0NiwzxGbi3ZsKWU");
